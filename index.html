@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wilson Jehanne | Portfolio Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="lang-en">
+    <header>
+        <div class="lang-selector">
+            <span class="lang-txt active" onclick="setLanguage('en')">EN</span>
+            <span class="lang-txt" onclick="setLanguage('fr')">FR</span>
+        </div>
+        <div class="header-container">
+            <h1>Wilson Jehanne</h1>
+            <div class="subtitle" lang="en">Information Technology Engineering Student</div>
+            <div class="subtitle" lang="fr">Étudiant en Ingénierie Informatique</div>
+            <div class="contact-nav">
+                <a href="mailto:wilsonjehanne@gmail.com" class="btn btn-blue"><i class="fa-solid fa-envelope"></i> <span lang="en">Email Me</span><span lang="fr">Me contacter</span></a>
+                <a href="tel:+33750339050" class="btn btn-green"><i class="fa-solid fa-phone"></i> <span lang="en">Call Me</span><span lang="fr">M'appeler</span></a>
+            </div>
+            <div class="meta-badges">
+                <span class="badge"><i class="fa-solid fa-car"></i> <span lang="en">Driving License (B)</span><span lang="fr">Permis de conduire (B)</span></span>
+                <span class="badge"><i class="fa-solid fa-briefcase"></i> <span lang="en">RQTH Beneficiary</span><span lang="fr">Bénéficiaire RQTH</span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section style="text-align: center;">
+            <h2 class="section-title" style="display:inline-block; border:none; padding:0;"><span lang="en">Welcome to my Professional Space</span><span lang="fr">Bienvenue sur mon espace professionnel</span></h2>
+            <p class="intro-text" style="text-align: center;" lang="en">I am currently seeking a 3-year work-study (apprenticeship) contract starting October 2026. Explore my specialized technical paths and my varied professional experiences below.</p>
+            <p class="intro-text" style="text-align: center;" lang="fr">Je suis actuellement à la recherche d'un contrat d'apprentissage de 3 ans à partir d'octobre 2026. Découvrez mon parcours technique spécialisé et mes diverses expériences professionnelles ci-dessous.</p>
+        </section>
+
+        <div class="hub-grid">
+            <a href="technical.html" class="hub-card">
+                <i class="fa-solid fa-microchip" style="display: block; margin-bottom: 15px;"></i>
+                <h3 lang="en">IT & Engineering</h3>
+                <h3 lang="fr">Informatique & École</h3>
+                <p lang="en">Discover my school background, Cisco CCNA projects, embedded systems work, and core tech environment.</p>
+                <p lang="fr">Découvrez mon parcours scolaire, mes projets Cisco CCNA, mes travaux sur systèmes embarqués et mon environnement technique.</p>
+            </a>
+            <a href="professional.html" class="hub-card">
+                <i class="fa-solid fa-briefcase" style="display: block; margin-bottom: 15px;"></i>
+                <h3 lang="en">Work Experience</h3>
+                <h3 lang="fr">Expériences Professionnelles</h3>
+                <p lang="en">Explore my practical background in retail customer service, industrial food processing, and team operations.</p>
+                <p lang="fr">Explorez mon parcours pratique dans le commerce, l'industrie agroalimentaire et le travail d'équipe.</p>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wilson Jehanne. Built for GitHub Pages.</p>
+    </footer>
+
+    <script>
+        function setLanguage(lang) {
+            document.body.className = 'lang-' + lang;
+            
+            document.querySelectorAll('.lang-txt').forEach(el => el.classList.remove('active'));
+            
+            const clickedBtn = Array.from(document.querySelectorAll('.lang-txt')).find(el => el.textContent.trim().toLowerCase() === lang);
+            if (clickedBtn) clickedBtn.classList.add('active');
+            
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('selectedLanguage');
+            if (savedLang) {
+                setLanguage(savedLang);
+            } else {
+                setLanguage('en');
+            }
+        });
+    </script>
+</body>
+</html>
